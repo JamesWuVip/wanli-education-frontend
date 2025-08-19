@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "wanli-education-frontend"
+app = "wanli-frontend"
 primary_region = "nrt"
 
 [build]
@@ -19,7 +19,8 @@ primary_region = "nrt"
 [[vm]]
   cpu_kind = "shared"
   cpus = 1
-  memory_mb = 256
+  memory_mb = 512
 
 [env]
   NODE_ENV = "production"
+  VITE_API_BASE_URL = "https://wanli-staging.fly.dev/api"
