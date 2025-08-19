@@ -23,4 +23,4 @@ primary_region = "nrt"
 
 [env]
   NODE_ENV = "production"
-  VITE_API_BASE_URL = "https://wanli-staging.fly.dev/api"
+  VITE_API_BASE_URL = "https://wanlirepo-production.up.railway.app/api"
