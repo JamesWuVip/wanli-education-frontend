@@ -1,39 +1,30 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+import path from 'path'
+import Inspector from 'unplugin-vue-dev-locator/vite'
+import traeBadgePlugin from 'vite-plugin-trae-solo-badge'
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    sourcemap: 'hidden'
+  },
   plugins: [
     vue(),
-    vueDevTools(),
+    Inspector(),
+    traeBadgePlugin({
+      variant: 'dark',
+      position: 'bottom-right',
+      prodOnly: true,
+      clickable: true,
+      clickUrl: 'https://www.trae.ai/solo?showJoin=1',
+      autoTheme: true,
+      autoThemeTarget: '#app'
+    })
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
-  },
-  build: {
-    outDir: 'dist',
-    sourcemap: false,
-    minify: 'terser',
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['vue', 'vue-router', 'pinia']
-        }
-      }
+      '@': path.resolve(__dirname, './src') // ✅ 定义 @ = src
     }
-  },
-  preview: {
-    host: '0.0.0.0',
-    port: parseInt(process.env.PORT || '4173'),
-    strictPort: true
-  },
-  server: {
-    host: '0.0.0.0',
-    port: 5173
   }
 })
