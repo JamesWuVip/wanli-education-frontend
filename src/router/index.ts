@@ -1,17 +1,11 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { setupRouterGuards } from './guards'
-import HomePage from '@/pages/HomePage.vue'
 
 // 定义路由配置
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
-    component: HomePage,
-    meta: {
-      title: '首页',
-      requiresAuth: false
-    }
+    redirect: '/dashboard'
   },
   {
     path: '/login',
@@ -39,7 +33,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/dashboard/DashboardPage.vue'),
     meta: {
       title: '仪表板',
-      requiresAuth: true
+      requiresAuth: false
     }
   },
   {
@@ -82,46 +76,7 @@ const routes: RouteRecordRaw[] = [
       roles: ['admin']
     }
   },
-  {
-    path: '/admin/stores',
-    name: 'adminStores',
-    component: () => import('@/views/admin/StoresPage.vue'),
-    meta: {
-      title: '门店管理',
-      requiresAuth: true,
-      roles: ['admin']
-    }
-  },
-  {
-    path: '/admin/users',
-    name: 'adminUsers',
-    component: () => import('@/views/admin/UsersPage.vue'),
-    meta: {
-      title: '用户管理',
-      requiresAuth: true,
-      roles: ['admin']
-    }
-  },
-  {
-    path: '/admin/analytics',
-    name: 'adminAnalytics',
-    component: () => import('@/views/admin/AnalyticsPage.vue'),
-    meta: {
-      title: '数据分析',
-      requiresAuth: true,
-      roles: ['admin']
-    }
-  },
-  {
-    path: '/admin/settings',
-    name: 'adminSettings',
-    component: () => import('@/views/admin/SettingsPage.vue'),
-    meta: {
-      title: '系统设置',
-      requiresAuth: true,
-      roles: ['admin']
-    }
-  },
+  {    path: '/admin/stores',    name: 'adminStores',    component: () => import('@/views/admin/StoresPage.vue'),    meta: {      title: '门店管理',      requiresAuth: true,      roles: ['admin']    }  },  {    path: '/admin/users',    name: 'adminUsers',    component: () => import('@/views/admin/UsersPage.vue'),    meta: {      title: '用户管理',      requiresAuth: true,      roles: ['admin']    }  },  {    path: '/admin/analytics',    name: 'adminAnalytics',    component: () => import('@/views/admin/AnalyticsPage.vue'),    meta: {      title: '数据分析',      requiresAuth: true,      roles: ['admin']    }  },  {    path: '/admin/settings',    name: 'adminSettings',    component: () => import('@/views/admin/SettingsPage.vue'),    meta: {      title: '系统设置',      requiresAuth: true,      roles: ['admin']    }  },
   // 课程管理路由
   {
     path: '/courses',
@@ -173,7 +128,7 @@ const routes: RouteRecordRaw[] = [
     name: 'lessonCreate',
     component: () => import('@/views/lessons/LessonCreatePage.vue'),
     meta: {
-      title: '创建课程',
+      title: '创建课时',
       requiresAuth: true
     }
   },
@@ -186,17 +141,7 @@ const routes: RouteRecordRaw[] = [
       requiresAuth: true
     }
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: {
-      template: '<div class="text-center text-xl p-8">About Page - Coming Soon</div>'
-    },
-    meta: {
-      title: '关于我们',
-      requiresAuth: false
-    }
-  },
+
   {
     path: '/404',
     name: 'notFound',
