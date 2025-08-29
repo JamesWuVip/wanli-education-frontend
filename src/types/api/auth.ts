@@ -56,7 +56,7 @@ export interface RegisterData {
   phone?: string
 }
 
-// 登录请求
+// 登录请求类型
 export interface LoginRequest {
   username: string
   password: string
@@ -65,7 +65,7 @@ export interface LoginRequest {
   captchaId?: string
 }
 
-// 登录响应
+// 登录响应类型
 export interface LoginResponse {
   accessToken: string
   refreshToken: string
@@ -74,7 +74,7 @@ export interface LoginResponse {
   user: UserInfo
 }
 
-// 注册请求
+// 注册请求类型
 export interface RegisterRequest {
   username: string
   email: string
@@ -87,19 +87,19 @@ export interface RegisterRequest {
   captchaId?: string
 }
 
-// 注册响应
+// 注册响应类型
 export interface RegisterResponse {
   user: UserInfo
   message: string
   requiresEmailVerification?: boolean
 }
 
-// 刷新Token请求
+// 刷新令牌请求类型
 export interface RefreshTokenRequest {
   refreshToken: string
 }
 
-// 刷新Token响应
+// 刷新令牌响应类型
 export interface RefreshTokenResponse {
   accessToken: string
   refreshToken: string
@@ -107,12 +107,12 @@ export interface RefreshTokenResponse {
   tokenType: string
 }
 
-// 登出请求
+// 登出请求类型
 export interface LogoutRequest {
   refreshToken?: string
 }
 
-// 获取当前用户信息响应
+// 获取当前用户响应类型
 export interface GetCurrentUserResponse {
   user: UserInfo
   permissions: string[]
@@ -130,32 +130,32 @@ export interface GetCurrentUserResponse {
   }>
 }
 
-// 邮箱验证请求
+// 邮箱验证请求类型
 export interface VerifyEmailRequest {
   token: string
   email: string
 }
 
-// 邮箱验证响应
+// 邮箱验证响应类型
 export interface VerifyEmailResponse {
   success: boolean
   message: string
 }
 
-// 发送密码重置邮件请求
+// 发送密码重置请求类型
 export interface SendPasswordResetRequest {
   email: string
   captcha?: string
   captchaId?: string
 }
 
-// 发送密码重置邮件响应
+// 发送密码重置响应类型
 export interface SendPasswordResetResponse {
   message: string
   success: boolean
 }
 
-// 重置密码请求
+// 重置密码请求类型
 export interface ResetPasswordRequest {
   token: string
   email: string
@@ -163,45 +163,45 @@ export interface ResetPasswordRequest {
   confirmPassword: string
 }
 
-// 重置密码响应
+// 重置密码响应类型
 export interface ResetPasswordResponse {
   success: boolean
   message: string
 }
 
-// 修改密码请求
+// 修改密码请求类型
 export interface ChangePasswordRequest {
   currentPassword: string
   newPassword: string
   confirmPassword: string
 }
 
-// 修改密码响应
+// 修改密码响应类型
 export interface ChangePasswordResponse {
   success: boolean
   message: string
 }
 
-// 验证码响应
+// 验证码响应类型
 export interface CaptchaResponse {
   captchaId: string
   captchaImage: string // base64 encoded image
   expiresIn: number
 }
 
-// 权限检查请求
+// 权限检查请求类型
 export interface CheckPermissionRequest {
   resource: string
   action: string
 }
 
-// 权限检查响应
+// 权限检查响应类型
 export interface CheckPermissionResponse {
   hasPermission: boolean
   reason?: string
 }
 
-// 用户会话信息
+// 会话信息类型
 export interface SessionInfo {
   sessionId: string
   userId: string
@@ -213,18 +213,18 @@ export interface SessionInfo {
   isActive: boolean
 }
 
-// 获取用户会话列表响应
+// 获取用户会话响应类型
 export interface GetUserSessionsResponse {
   sessions: SessionInfo[]
   currentSessionId: string
 }
 
-// 终止会话请求
+// 终止会话请求类型
 export interface TerminateSessionRequest {
   sessionId: string
 }
 
-// 终止会话响应
+// 终止会话响应类型
 export interface TerminateSessionResponse {
   success: boolean
   message: string
