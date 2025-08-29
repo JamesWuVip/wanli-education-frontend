@@ -1,5 +1,5 @@
 import type { SubmissionResult, AssignmentItem, ApiResponse, PaginatedResponse } from '@/types/submission'
-import { api } from './client'
+import { api } from './index'
 
 // 作业提交相关API
 export const submissionApi = {
