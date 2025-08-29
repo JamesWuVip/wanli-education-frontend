@@ -48,7 +48,7 @@ export interface PaginatedResponse<T> {
   hasPrev: boolean
 }
 
-// API响应基础类型
+// API响应类型
 export interface ApiResponse<T = any> {
   success: boolean
   data: T
@@ -56,7 +56,7 @@ export interface ApiResponse<T = any> {
   code?: number
 }
 
-// 错误响应类型
+// API错误类型
 export interface ApiError {
   success: false
   message: string
@@ -88,7 +88,7 @@ export interface RegisterRequest {
   fullName?: string
 }
 
-// 文件上传类型
+// 文件上传响应类型
 export interface FileUploadResponse {
   url: string
   filename: string
