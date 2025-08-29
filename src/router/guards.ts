@@ -27,8 +27,12 @@ export function setupRouterGuards(router: Router) {
     
     // 检查已登录用户是否应该隐藏某些页面
     if (to.meta?.hideForAuth && authStore.isAuthenticated) {
-      // 已登录用户访问登录/注册页，跳转到仪表板
-      next({ name: 'dashboard' })
+      // 已登录用户访问登录/注册页，根据用户角色跳转
+      if (authStore.userRole === 'admin') {
+        next({ name: 'dashboard' })
+      } else {
+        next({ name: 'dashboard' })
+      }
       return
     }
     
